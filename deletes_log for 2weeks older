@@ -1,0 +1,19 @@
+#! /bin/bash
+
+
+ye=$(date -d '-2 day' +%d)
+
+t=$(date -d '-1 day' +%d)
+
+
+cd /var/log/sar
+
+ls -1 | egrep -0 "ye|t" | while read i
+
+do
+
+sar -f sa$i | grep "[0-9][0-9]:[0-0][0-0] -A1
+
+sar -r -f sa$i | grep "[0-9][0-9]:[0-0][0-0] -A1
+
+done
